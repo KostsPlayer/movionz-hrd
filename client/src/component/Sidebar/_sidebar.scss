@@ -1,0 +1,56 @@
+@use "./../../helper/mixin" as m;
+@use "./../../helper/variables" as v;
+
+@mixin sidebar() {
+  width: v.$w-sidebar-expand;
+  height: fit-content;
+  padding: 1.8rem 0;
+  display: grid;
+  border-right: 0.1rem solid #ddd;
+  gap: 0.4rem;
+  align-items: center;
+
+  .active {
+    background-color: rgba(
+      $color: map-get(v.$main, "light-purple"),
+      $alpha: 0.7
+    );
+    color: map-get($map: v.$main, $key: "dark-purple") !important;
+
+    .container {
+      span {
+        color: red !important;
+      }
+    }
+  }
+
+  .line {
+    width: 100%;
+    border-top: 0.1rem solid #ddd;
+    margin: 0.8rem 0;
+    background-color: #ddd;
+  }
+
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 0.9rem 2.1rem;
+    @include m.flex($justify: flex-start);
+    text-decoration: none;
+    gap: 0.6rem;
+    color: #000;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      // background-color: rgba($color: #ddd, $alpha: 0.5);
+      color: map-get($map: v.$main, $key: "dark-purple");
+      // transition: .1s ease-in-out ;
+    }
+
+    span {
+      @include m.flex();
+    }
+  }
+}

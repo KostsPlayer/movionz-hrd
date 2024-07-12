@@ -1,0 +1,33 @@
+@use "./../../helper/mixin" as m;
+@use "./../../helper/variables" as v;
+@use "./../Sidebar/sidebar" as s;
+@use "./../Topbar/topbar" as t;
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "topbar topbar"
+    "sidebar content";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+
+  .topbar {
+    grid-area: topbar;
+    @include t.topbar();
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    @include s.sidebar();
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+    padding: 1.8rem 2.1rem;
+    grid-area: content;
+    background-color: #f6f8fa;
+  }
+}

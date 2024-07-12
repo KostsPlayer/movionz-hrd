@@ -1,0 +1,21 @@
+@use "./helper/mixin" as m;
+@use "./helper/variables" as v;
+@use "./pages/Dashboard/dashboard";
+@use "./pages/Schedule/schedule";
+@use "./component/Layout/layout";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Nunito", sans-serif;
+}

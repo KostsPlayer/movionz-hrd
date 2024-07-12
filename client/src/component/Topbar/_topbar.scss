@@ -1,0 +1,118 @@
+@use "./../../helper/mixin" as m;
+@use "./../../helper/variables" as v;
+
+@mixin topbar() {
+  width: 100%;
+  height: auto;
+  padding: 1.2rem 1.2rem 1.2rem 2.8rem;
+  @include m.flex($justify: flex-start);
+  border-bottom: 0.1rem solid #ddd;
+  gap: 0.8rem;
+
+  .logo {
+    width: fit-content;
+    height: 100%;
+    @include m.flex($justify: flex-start);
+
+    img {
+      height: 2.2rem;
+      width: 9rem;
+      object-fit: cover;
+    }
+  }
+
+  .search {
+    width: 100%;
+    height: 2.2rem;
+    @include m.flex($justify: flex-start);
+    margin-left: 5.2rem;
+    gap: 0.1rem;
+
+    button {
+      color: rgba($color: #000000, $alpha: 0.5);
+      width: fit-content;
+      height: 100%;
+      @include m.flex();
+      border: 0;
+      outline: none;
+      background-color: transparent;
+    }
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      // border: .1rem saddlebrown solid;
+      outline: none;
+      padding: 0 0.35rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+  }
+
+  .other {
+    width: 100%;
+    height: auto;
+    @include m.flex($justify: flex-end);
+    gap: 0.8rem;
+
+    .notification {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+      background-color: #ddd;
+      padding: 0.3rem;
+      border-radius: 0.4rem;
+      @include m.flex();
+
+      .active {
+        position: absolute;
+        top: 0.4rem;
+        right: 0.45rem;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-radius: 50%;
+        border: .1rem solid #ddd;
+        background-color: #f00;
+      }
+    }
+
+    .profile {
+      width: fit-content;
+      height: auto;
+      @include m.flex();
+      gap: 0.2rem;
+
+      .image {
+        width: 4.2rem;
+        height: 2.6rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .text {
+        width: 100%;
+        height: auto;
+        @include m.flex($direction: column, $align: flex-start);
+        gap: 0.15rem;
+
+        .name {
+          font-size: 0.95rem;
+          line-height: 100%;
+          font-weight: 600;
+        }
+
+        .job {
+          line-height: 100%;
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: rgba($color: #000, $alpha: 0.5);
+        }
+      }
+    }
+  }
+}
