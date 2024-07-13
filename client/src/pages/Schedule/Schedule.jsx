@@ -31,7 +31,9 @@ const renderRows = () => {
     <tr key={index}>
       <td className="hour">{time}</td>
       {daysOfWeek.map((day, idx) => (
-        <td key={idx} className="time-slot"></td>
+        <td key={idx} className="time-slot">
+          <div className="card">k;lajsdf;;laksjdf;laksjdf</div>
+        </td>
       ))}
     </tr>
   ));
@@ -137,7 +139,8 @@ const Schedule = () => {
                   ))}
                 </tr>
               </thead>
-              <tbody>{renderRows()}</tbody>
+              <tbody>{renderRows()}
+              </tbody>
             </table>
           </div>
         </div>

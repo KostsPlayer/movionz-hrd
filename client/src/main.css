@@ -301,6 +301,7 @@
   border-left: none;
   border-right: none;
   padding: 10px;
+  position: relative;
 }
 .schedule .weekly-schedule .week {
   padding-right: 10px;
@@ -309,6 +310,19 @@
 .schedule .weekly-schedule .hour {
   color: #7a7a7a;
   border: none;
+}
+.schedule .weekly-schedule .hour .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+  background-color: #5272e9;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
 }
 .schedule-right {
   position: relative;
@@ -423,42 +437,42 @@
   display: flex;
   align-items: center;
   border-radius: 3px;
-  background-color: #5272E9;
+  background-color: #5272e9;
 }
 .schedule-right .calendar-detail .container-detail ul li .check-2 {
   color: white;
   display: flex;
   align-items: center;
   border-radius: 3px;
-  background-color: #24B0C9;
+  background-color: #24b0c9;
 }
 .schedule-right .calendar-detail .container-detail ul li .check-3 {
   color: white;
   display: flex;
   align-items: center;
   border-radius: 3px;
-  background-color: #FD9E30;
+  background-color: #fd9e30;
 }
 .schedule-right .calendar-detail .container-detail ul li .check-4 {
   color: white;
   display: flex;
   align-items: center;
   border-radius: 3px;
-  background-color: #FD3055;
+  background-color: #fd3055;
 }
 .schedule-right .calendar-detail .container-detail ul li .check-5 {
   color: white;
   display: flex;
   align-items: center;
   border-radius: 3px;
-  background-color: #5AEE72;
+  background-color: #5aee72;
 }
 .schedule-right .calendar-detail .container-detail ul li .check-6 {
   color: white;
   display: flex;
   align-items: center;
   border-radius: 3px;
-  background-color: #3EF1FD;
+  background-color: #3ef1fd;
 }
 .schedule-right .calendar-detail .container-detail ul li p {
   margin-left: 10px;
@@ -472,7 +486,7 @@
 .schedule-right .calendar-detail .header-detail .tombol {
   border: 0px solid transparent;
   background-color: transparent;
-  color: #5272E9;
+  color: #5272e9;
   cursor: pointer;
 }
 

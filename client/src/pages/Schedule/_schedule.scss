@@ -37,6 +37,7 @@
           background-color: #3f5de7;
           transition: 0.5s;
         }
+
         p {
           padding-left: 4px;
         }
@@ -57,25 +58,45 @@
       border: 0 solid transparent;
       text-align: center;
     }
+
     th {
       border: none;
       padding: 10px;
       color: #b1b1b1;
     }
+
     td {
       border: 1px solid #ddd;
       border-left: none;
       border-right: none;
       padding: 10px;
+      position: relative;
     }
+
     .week {
       padding-right: 10px;
       font-weight: bold;
     }
+
     .hour {
       color: #7a7a7a;
       border: none;
+
+      .card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100%;
+      background-color: #5272e9;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
     }
+    }
+
   }
 
   &-right {
@@ -122,6 +143,7 @@
       font-weight: 600;
       width: 150px;
     }
+
     .days {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -181,79 +203,75 @@
       border-radius: 10px;
       border: 2px solid #e4e4e4;
 
-      .container-detail{
+      .container-detail {
         gap: 10px;
-      
+
         ul {
-        list-style-type: none;
-        margin: auto;
-        margin-top: 10px;
+          list-style-type: none;
+          margin: auto;
+          margin-top: 10px;
 
-        li {
-          display: flex;
-          align-items: center;
-          font-size: 12px;
-          font-weight: 500;
-          margin-bottom: 10px;
-
-          .check-1{
+          li {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
             font-weight: 500;
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            background-color: #5272E9;
-          }
+            margin-bottom: 10px;
 
-          .check-2{
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            background-color: #24B0C9;
-            
-          }
+            .check-1 {
+              font-weight: 500;
+              color: white;
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              background-color: #5272e9;
+            }
 
-          .check-3{
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            background-color: #FD9E30;
-            
-          }
+            .check-2 {
+              color: white;
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              background-color: #24b0c9;
+            }
 
-          .check-4{
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            background-color: #FD3055;
-            
-          }
+            .check-3 {
+              color: white;
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              background-color: #fd9e30;
+            }
 
-          .check-5{
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            background-color: #5AEE72;
-            
-          }
+            .check-4 {
+              color: white;
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              background-color: #fd3055;
+            }
 
-          .check-6{
-            color: white;
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            background-color: #3EF1FD;
-            
-          }
-          p{
-            margin-left: 10px;
+            .check-5 {
+              color: white;
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              background-color: #5aee72;
+            }
+
+            .check-6 {
+              color: white;
+              display: flex;
+              align-items: center;
+              border-radius: 3px;
+              background-color: #3ef1fd;
+            }
+
+            p {
+              margin-left: 10px;
+            }
           }
         }
-      }
       }
 
       .header-detail {
@@ -265,7 +283,7 @@
         .tombol {
           border: 0px solid transparent;
           background-color: transparent;
-          color: #5272E9;
+          color: #5272e9;
           cursor: pointer;
         }
       }
