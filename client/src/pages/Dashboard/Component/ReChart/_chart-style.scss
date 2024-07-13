@@ -1,0 +1,23 @@
+@use "./../../../../helper/mixin" as m;
+@use "./../../../../helper/variables" as v;
+
+.canvas {
+  width: 100%;
+  height: auto;
+
+  &-item {
+    * {
+      border: none !important;
+      outline: none !important;
+    }
+
+    path {
+      stroke: none !important;
+      stroke-width: 0 !important;
+    }
+  }
+
+  text:nth-child(1) {
+    font-weight: 700;
+  }
+}

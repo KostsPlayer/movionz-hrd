@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+.canvas {
+  width: 100%;
+  height: auto;
+}
+.canvas-item * {
+  border: none !important;
+  outline: none !important;
+}
+.canvas-item path {
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+.canvas text:nth-child(1) {
+  font-weight: 700;
+}
+
 .dashboard {
   width: 100%;
   height: auto;
@@ -681,4 +697,4 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   font-family: "Nunito", sans-serif;
-}/*# sourceMappingURL=main.css.map */
+}
