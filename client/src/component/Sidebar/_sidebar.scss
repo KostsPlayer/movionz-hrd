@@ -3,12 +3,10 @@
 
 @mixin sidebar() {
   width: v.$w-sidebar-expand;
-  height: fit-content;
+  height: auto;
   padding: 1.8rem 0;
-  display: grid;
+  @include m.flex($direction: column, $justify: flex-start);
   border-right: 0.1rem solid #ddd;
-  gap: 0.4rem;
-  align-items: center;
 
   .active {
     background-color: rgba(
@@ -16,12 +14,6 @@
       $alpha: 0.7
     );
     color: map-get($map: v.$main, $key: "dark-purple") !important;
-
-    .container {
-      span {
-        color: red !important;
-      }
-    }
   }
 
   .line {
@@ -44,9 +36,7 @@
     transition: 0.2s ease-out;
 
     &:hover {
-      // background-color: rgba($color: #ddd, $alpha: 0.5);
       color: map-get($map: v.$main, $key: "dark-purple");
-      // transition: .1s ease-in-out ;
     }
 
     span {

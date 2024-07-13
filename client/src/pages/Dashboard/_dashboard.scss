@@ -5,9 +5,16 @@
   width: 100%;
   height: auto;
   display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas:
+    "display display"
+    "statistic statistic"
+    "status composition";
   gap: 2rem;
 
   .display-data {
+    grid-area: display;
     width: 100%;
     height: auto;
     display: grid;
@@ -70,10 +77,160 @@
   }
 
   .job-statistic {
+    grid-area: statistic;
     width: 100%;
     height: auto;
     background-color: #fff;
     border: #ddd solid 0.1rem;
     border-radius: 0.3rem;
+  }
+
+  .employee-status {
+    grid-area: status;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border: #ddd solid 0.1rem;
+    border-radius: 0.3rem;
+    padding: 1.1rem;
+    @include m.flex($direction: column);
+    gap: 0.2rem;
+
+    .wrapper {
+      width: 100%;
+      height: auto;
+      @include m.flex($justify: space-between);
+
+      .title {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .filter {
+        padding: 0.25rem 0.65rem;
+        background-color: map-get($map: v.$main, $key: "light-purple");
+        @include m.flex();
+        gap: 0.25rem;
+        border-radius: 0.4rem;
+        cursor: pointer;
+
+        span {
+          @include m.flex();
+          color: map-get($map: v.$main, $key: "dark-purple");
+          font-weight: 600;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .headers {
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 0.8fr 1fr 1fr;
+      gap: 0.5rem;
+      padding-bottom: 0.8rem;
+      margin: 0.6rem 0 0.9rem 0;
+      border-bottom: rgba($color: #000, $alpha: 0.2) solid 0.05rem;
+
+      .col {
+        font-weight: 600;
+        font-size: 0.8rem;
+        color: rgba($color: #000, $alpha: 0.5);
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          @include m.flex($justify: flex-start);
+        }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          @include m.flex();
+        }
+
+        &:nth-child(5) {
+          @include m.flex($justify: flex-end);
+        }
+      }
+    }
+
+    .bodies {
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 0.8fr 1fr 1fr;
+      gap: 0.5rem;
+      // border: #000 solid .1rem;
+
+      .col {
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding: 0 0 0.3rem 0;
+
+        &:nth-child(1) {
+          @include m.flex($justify: flex-start);
+          gap: 0.3rem;
+
+          img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+
+        &:nth-child(2) {
+          @include m.flex($justify: flex-start);
+        }
+
+        &:nth-child(3) {
+          @include m.flex();
+        }
+
+        &:nth-child(4) {
+          @include m.flex();
+
+          span:nth-child(1) {
+            color: map-get($map: v.$main, $key: "green-cyan");
+            font-weight: 700;
+
+            &.no-disipline {
+              color: map-get($map: v.$main, $key: "red");
+            }
+          }
+        }
+
+        &:nth-child(5) {
+          @include m.flex($justify: flex-end);
+
+          span.permanent {
+            background-color: rgba(
+              $color: map-get($map: v.$main, $key: "green-cyan"),
+              $alpha: 0.2
+            );
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+            color: map-get($map: v.$main, $key: "green-cyan");
+          }
+
+          span.contract {
+            background-color: rgba($color: #000, $alpha: 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+            color: rgba($color: #000, $alpha: 0.6);
+          }
+        }
+      }
+    }
+  }
+
+  .employee-composition {
+    grid-area: composition;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border: #ddd solid 0.1rem;
+    border-radius: 0.3rem;
+    @include m.flex();
   }
 }
