@@ -5,23 +5,22 @@ import ApexCharts from "apexcharts";
 import {
   generateJobStatistics,
   JobStatisticCharts,
-} from "./Component/JobStatistics";
+} from "./Component/ApexChart/JobStatistics";
 import {
   generateEmployeeComposition,
   EmployeeCompositionCharts,
-} from "./Component/EmployeeComposition";
+} from "./Component/ApexChart/EmployeeComposition";
+// import EmployeeComposition from "./Component/ChartJs/EmployeeComposition";
+// import EmployeeComposition from "./Component/CanvasJs/EmployeeComposition";
+import EmployeeComposition from "./Component/ReChart/EmployeeComposition";
 import { SlidersHorizontal } from "lucide-react";
 import StatusEmployee from "./Component/StatusEmployee";
 
 function Dashboard() {
   const [trendingUp, setTrendingUp] = useState(true);
   const [jobStatistic, setJobStatistic] = useState(generateJobStatistics());
-  const [employeeComposition, setEmployeeComposition] = useState(
-    generateEmployeeComposition()
-  );
 
   const jobStatisticRef = useRef();
-  const employeeCompositionRef = useRef();
 
   useEffect(() => {
     if (jobStatisticRef.current) {
@@ -31,18 +30,7 @@ function Dashboard() {
         chart.destroy();
       };
     }
-
-    if (employeeCompositionRef.current) {
-      const chart = new ApexCharts(
-        employeeCompositionRef.current,
-        employeeComposition
-      );
-      chart.render();
-      return () => {
-        chart.destroy();
-      };
-    }
-  }, [jobStatistic, employeeComposition]);
+  }, [jobStatistic]);
 
   return (
     <Layout>
@@ -93,9 +81,10 @@ function Dashboard() {
           <StatusEmployee />
         </div>
         <div className="employee-composition">
-          <EmployeeCompositionCharts
+          {/* <EmployeeCompositionCharts
             employeeComposition={employeeComposition}
-          />
+          /> */}
+          <EmployeeComposition />
         </div>
       </div>
     </Layout>

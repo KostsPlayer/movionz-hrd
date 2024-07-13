@@ -1,5 +1,6 @@
 @use "./../../helper/mixin" as m;
 @use "./../../helper/variables" as v;
+@use "./Component/ReChart/chart-style";
 
 .dashboard {
   width: 100%;
