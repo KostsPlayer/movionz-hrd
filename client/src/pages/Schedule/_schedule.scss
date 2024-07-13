@@ -6,7 +6,7 @@
   grid-template-columns: 2fr 1fr;
   width: 100%;
 
-  &-center {
+  &-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -14,35 +14,80 @@
     .isi-container {
       display: flex;
       gap: 10px;
-    }
-    .month {
-      height: fit-content;
-      padding: 8px;
-      border-radius: 3px;
-    }
 
-    .tombol {
-      height: fit-content;
-      display: flex;
-      align-items: center;
-      padding: 5px 10px;
-      color: white;
-      background-color: #5272e9;
-      border: 0;
-      border-radius: 3px;
+      .month {
+        height: fit-content;
+        padding: 8px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .tombol {
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        color: white;
+        background-color: #5272e9;
+        border: 0;
+        border-radius: 3px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #3f5de7;
+          transition: 0.5s;
+        }
+        p {
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+
+  .weekly-schedule {
+    width: 100%;
+    padding: 20px 20px 0 0;
+    margin: auto;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      border: 0 solid transparent;
+      text-align: center;
+    }
+    th {
+      border: none;
+      padding: 10px;
+      color: #b1b1b1;
+    }
+    td {
+      border: 1px solid #ddd;
+      border-left: none;
+      border-right: none;
+      padding: 10px;
+    }
+    .week {
+      padding-right: 10px;
+      font-weight: bold;
+    }
+    .hour {
+      color: #7a7a7a;
+      border: none;
     }
   }
 
   &-right {
     position: relative;
     top: -29px;
+    right: -29px;
     background-color: white;
-    margin: 0 0 0 20px;
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px;
 
     .calendar {
-      width: 280px;
+      width: 350px;
       margin: auto;
       height: auto;
       display: flex;
@@ -107,8 +152,8 @@
       cursor: pointer;
       font-weight: 300;
       border-radius: 50%;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       transition: 0.2s;
 
       &:hover,
@@ -127,7 +172,7 @@
     }
 
     .calendar-detail {
-      width: 280px;
+      width: 350px;
       margin: 20px auto;
       height: auto;
       display: flex;
@@ -136,14 +181,91 @@
       border-radius: 10px;
       border: 2px solid #e4e4e4;
 
+      .container-detail{
+        gap: 10px;
+      
+        ul {
+        list-style-type: none;
+        margin: auto;
+        margin-top: 10px;
+
+        li {
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          font-weight: 500;
+          margin-bottom: 10px;
+
+          .check-1{
+            font-weight: 500;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #5272E9;
+          }
+
+          .check-2{
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #24B0C9;
+            
+          }
+
+          .check-3{
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #FD9E30;
+            
+          }
+
+          .check-4{
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #FD3055;
+            
+          }
+
+          .check-5{
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #5AEE72;
+            
+          }
+
+          .check-6{
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            background-color: #3EF1FD;
+            
+          }
+          p{
+            margin-left: 10px;
+          }
+        }
+      }
+      }
+
       .header-detail {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: 16px;
 
         .tombol {
           border: 0px solid transparent;
           background-color: transparent;
+          color: #5272E9;
           cursor: pointer;
         }
       }
