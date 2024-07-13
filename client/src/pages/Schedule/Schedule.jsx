@@ -1,7 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { Plus, ChevronRight, ChevronLeft } from "lucide-react";
+import { Plus, ChevronRight, ChevronLeft, Check } from "lucide-react";
 import Layout from "./../../component/Layout/Layout";
 
+const daysOfWeek = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+];
+
+const startDate = new Date("2024-07-14");
+
+const times = Array.from({ length: 10 }, (_, i) => `${i + 9}:00`);
+
+const generateDates = () => {
+  const dates = [];
+  for (let i = 0; i < 7; i++) {
+    const date = new Date(startDate);
+    date.setDate(startDate.getDate() + i);
+    dates.push(date.getDate());
+  }
+  return dates;
+};
+
+const renderRows = () => {
+  return times.map((time, index) => (
+    <tr key={index}>
+      <td className="hour">{time}</td>
+      {daysOfWeek.map((day, idx) => (
+        <td key={idx} className="time-slot"></td>
+      ))}
+    </tr>
+  ));
+};
 const Schedule = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [datesHTML, setDatesHTML] = useState("");
@@ -66,26 +100,45 @@ const Schedule = () => {
     <Layout>
       <div className="schedule">
         <div className="schedule-center">
-          <h4>February, 14-20</h4>
-          <div className="isi-container">
-            <select className="month">
-              <option value="January">January</option>
-              <option value="February">February</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-            </select>
-            <button className="tombol">
-              <Plus />
-              Add New
-            </button>
+          <div className="schedule-container">
+            <h4>February, 14-20</h4>
+            <div className="isi-container">
+              <select className="month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select>
+              <button className="tombol">
+                <Plus />
+                <p>Add New</p>
+              </button>
+            </div>
+          </div>
+          <div className="weekly-schedule">
+            <table>
+              <thead>
+                <tr>
+                  <th className="week">Week</th>
+                  {daysOfWeek.map((day, index) => (
+                    <th key={index} className="day">
+                      {generateDates()[index]}
+                      <br />
+                      {day}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>{renderRows()}</tbody>
+            </table>
           </div>
         </div>
         <div className="schedule-right">
@@ -119,6 +172,50 @@ const Schedule = () => {
               <button className="tombol">
                 <Plus />
               </button>
+            </div>
+            <div className="container-detail">
+              <ul>
+                <li>
+                  <span className="check-1">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <p>menyelesaikan masalah keluhan karyawan</p>
+                </li>
+                <li>
+                  <span className="check-2">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <p>
+                    Mengembangkan rencana tindakan untuk peningkatan kinerja
+                  </p>
+                </li>
+                <li>
+                  <span className="check-3">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <p>Memeriksa dan memperbarui data karyawan dalam sistem HR</p>
+                </li>
+                <li>
+                  <span className="check-4">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <p>Mengadakan wawancara dan tes kemampuan</p>
+                </li>
+                <li>
+                  <span className="check-5">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <p>Merancang dan menyusun materi pelatihan</p>
+                </li>
+                <li>
+                  <span className="check-6">
+                    <Check strokeWidth={3} />
+                  </span>
+                  <p>
+                    Menangani permintaan cuti, izin, dan administrasi lainnya
+                  </p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
