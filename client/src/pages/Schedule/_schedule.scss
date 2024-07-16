@@ -3,281 +3,242 @@
 
 .schedule {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1.4fr;
   width: 100%;
+  gap: 1.8rem;
 
-  &-container {
-    display: flex;
-    justify-content: space-between;
+  &-center {
+    height: fit-content;
     width: 100%;
+    position: relative;
 
-    .isi-container {
-      display: flex;
-      gap: 10px;
-
-      .month {
-        height: fit-content;
-        padding: 8px;
-        border-radius: 3px;
-        cursor: pointer;
-      }
-
-      .tombol {
-        height: fit-content;
-        display: flex;
-        align-items: center;
-        padding: 5px 10px;
-        color: white;
-        background-color: #5272e9;
-        border: 0;
-        border-radius: 3px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #3f5de7;
-          transition: 0.5s;
-        }
-
-        p {
-          padding-left: 4px;
-        }
-      }
-    }
-  }
-
-  .weekly-schedule {
-    width: 100%;
-    padding: 20px 20px 0 0;
-    margin: auto;
-
-    table {
-      border-collapse: collapse;
+    .schedule-container {
+      @include m.flex($justify: space-between);
       width: 100%;
-      text-align: center;
-      margin-top: 20px;
-      border: 0 solid transparent;
-      text-align: center;
+
+      .isi-container {
+        display: flex;
+        gap: 10px;
+
+        .month {
+          @include m.flex();
+          height: 2.15rem;
+          padding: 0 4px;
+          border-radius: 3px;
+          border: #ddd solid 0.1rem;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .tombol {
+          width: 100%;
+          height: 2.1rem;
+          gap: 0.3rem;
+          @include m.flex();
+          padding: 0 13px 0 10px;
+          color: white;
+          background-color: #5272e9;
+          border: 0;
+          border-radius: 3px;
+          cursor: pointer;
+
+          span {
+            @include m.flex();
+          }
+
+          &:hover {
+            background-color: #3f5de7;
+            transition: 0.5s;
+          }
+
+          p {
+            padding-left: 4px;
+          }
+        }
+      }
     }
 
-    th {
-      border: none;
-      padding: 10px;
-      color: #b1b1b1;
-    }
-
-    td {
-      border: 1px solid #ddd;
-      border-left: none;
-      border-right: none;
-      padding: 10px;
-      position: relative;
-    }
-
-    .week {
-      padding-right: 10px;
-      font-weight: bold;
-    }
-
-    .hour {
-      color: #7a7a7a;
-      border: none;
-
-      .card {
+    .weekly-schedule {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100px;
-      height: 100%;
-      background-color: #5272e9;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
-    }
-    }
+      width: 100%;
+      height: auto;
+      margin-top: 40px;
+      overflow-x: auto;
+      // margin: auto;
 
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        border: 0 solid transparent;
+        text-align: center;
+
+        th {
+          border: none;
+          padding: 10px;
+          font-weight: 400;
+          color: #b1b1b1;
+          line-height: 100%;
+          font-size: 0.95rem;
+
+          span {
+            &:first-child {
+              display: block;
+              padding-bottom: 0.15rem;
+            }
+
+            &:last-child {
+            }
+          }
+        }
+
+        td {
+          font-weight: 400;
+          border: 1px solid #b1b1b1;
+          border-left: none;
+          border-right: none;
+          padding: 4px;
+          position: relative;
+        }
+
+        .week {
+          color: #b1b1b1;
+        }
+
+        .hour {
+          color: #b1b1b1;
+          border: none;
+        }
+
+        .card {
+          width: 100px;
+          height: 100%;
+          @include m.flex();
+          border-radius: 5px;
+          padding: 12px 0;
+          border: 0.1rem solid #000;
+        }
+      }
+    }
   }
 
   &-right {
-    position: relative;
-    top: -29px;
-    right: -29px;
-    background-color: white;
     width: 100%;
-    padding: 20px 20px;
+    height: auto;
+    position: relative;
+    @include m.flex($direction: column, $justify: flex-start);
+    gap: 1.4rem;
+    padding-left: 2.1rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -3rem;
+      left: 0;
+      width: 125%;
+      height: 115%;
+      background-color: #fff;
+      z-index: 1;
+    }
 
     .calendar {
-      width: 350px;
-      margin: auto;
+      width: 100%;
       height: auto;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
+      @include m.flex($direction: column);
+      padding: 1rem 1.2rem;
       border-radius: 10px;
-      border: 2px solid #e4e4e4;
-    }
+      border: 0.1rem solid #e4e4e4;
+      gap: 0.6rem;
+      z-index: 2;
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
+      .header {
+        position: relative;
+        width: 100%;
+        height: auto;
+        @include m.flex($justify: space-between);
+        margin-bottom: 1.2rem;
 
-      button {
-        display: flex;
-        align-items: center;
+        button {
+          @include m.flex();
+          border: none;
+          color: #5272e9;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
+        .monthYear {
+          width: 100%;
+          text-align: center;
+          font-weight: 700;
+          font-size: 0.95rem;
+        }
+      }
+
+      .days {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        .day {
+          font-weight: 700;
+          font-size: small;
+          text-align: center;
+          color: #7a7a7a;
+        }
+      }
+
+      .dates {
+        width: 100%;
+        font-size: 0.65rem;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.1rem;
+        margin-top: -0.4rem;
         justify-content: center;
-        border: none;
-        border-radius: 50%;
-        color: #5272e9;
-        background-color: #fff;
-        cursor: pointer;
-        width: 20px;
-        height: 20px;
-      }
-    }
 
-    .monthYear {
-      text-align: center;
-      font-weight: 600;
-      width: 150px;
-    }
+        .date {
+          @include m.flex();
+          text-align: center;
+          margin: auto;
+          cursor: pointer;
+          font-weight: 300;
+          width: 30px;
+          height: 30px;
+          transition: 0.2s;
+          border-radius: 50%;
+          font-weight: 500;
 
-    .days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-    }
+          &:hover,
+          &.active {
+            background-color: #5272e9;
+            color: white;
+          }
 
-    .day {
-      font-size: small;
-      text-align: center;
-      padding: 5px;
-      color: #7a7a7a;
-      font-weight: 500;
-    }
+          &.inactive {
+            color: rgba($color: #000, $alpha: 0.3);
 
-    .dates {
-      font-size: small;
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-    }
-
-    .date {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px;
-      margin: auto;
-      cursor: pointer;
-      font-weight: 300;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      transition: 0.2s;
-
-      &:hover,
-      &.active {
-        background-color: #5272e9;
-        color: white;
-      }
-
-      &.inactive {
-        color: #e4e4e4;
-
-        &:hover {
-          color: #fff;
+            &:hover {
+              color: #fff;
+            }
+          }
         }
       }
     }
 
     .calendar-detail {
-      width: 350px;
-      margin: 20px auto;
+      width: 100%;
       height: auto;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
+      padding: 0.8rem 1.2rem;
+      @include m.flex($direction: column);
       border-radius: 10px;
-      border: 2px solid #e4e4e4;
-
-      .container-detail {
-        gap: 10px;
-
-        ul {
-          list-style-type: none;
-          margin: auto;
-          margin-top: 10px;
-
-          li {
-            display: flex;
-            align-items: center;
-            font-size: 12px;
-            font-weight: 500;
-            margin-bottom: 10px;
-
-            .check-1 {
-              font-weight: 500;
-              color: white;
-              display: flex;
-              align-items: center;
-              border-radius: 3px;
-              background-color: #5272e9;
-            }
-
-            .check-2 {
-              color: white;
-              display: flex;
-              align-items: center;
-              border-radius: 3px;
-              background-color: #24b0c9;
-            }
-
-            .check-3 {
-              color: white;
-              display: flex;
-              align-items: center;
-              border-radius: 3px;
-              background-color: #fd9e30;
-            }
-
-            .check-4 {
-              color: white;
-              display: flex;
-              align-items: center;
-              border-radius: 3px;
-              background-color: #fd3055;
-            }
-
-            .check-5 {
-              color: white;
-              display: flex;
-              align-items: center;
-              border-radius: 3px;
-              background-color: #5aee72;
-            }
-
-            .check-6 {
-              color: white;
-              display: flex;
-              align-items: center;
-              border-radius: 3px;
-              background-color: #3ef1fd;
-            }
-
-            p {
-              margin-left: 10px;
-            }
-          }
-        }
-      }
+      border: 0.1rem solid #ddd;
+      gap: 1rem;
+      z-index: 2;
 
       .header-detail {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        width: 100%;
+        @include m.flex($justify: space-between);
         font-size: 16px;
 
         .tombol {
@@ -285,6 +246,58 @@
           background-color: transparent;
           color: #5272e9;
           cursor: pointer;
+        }
+      }
+
+      .container-detail {
+        list-style-type: none;
+        display: grid;
+        width: 100%;
+        gap: 0.6rem;
+
+        li {
+          font-size: 12px;
+          font-weight: 500;
+          @include m.flex($justify: flex-start);
+          gap: 0.5rem;
+
+          @mixin check($bg-color) {
+            font-weight: 500;
+            color: white;
+            @include m.flex();
+            border-radius: 3px;
+            background-color: $bg-color;
+            padding: 0.15rem;
+          }
+
+          .check-1 {
+            @include check($bg-color: #5272e9);
+          }
+
+          .check-2 {
+            @include check($bg-color: #24b0c9);
+          }
+
+          .check-3 {
+            @include check($bg-color: #fd9e30);
+          }
+
+          .check-4 {
+            @include check($bg-color: #fd3055);
+          }
+
+          .check-5 {
+            @include check($bg-color: #5aee72);
+          }
+
+          .check-6 {
+            @include check($bg-color: #3ef1fd);
+          }
+
+          p {
+            line-height: 120%;
+            font-weight: 500;
+          }
         }
       }
     }

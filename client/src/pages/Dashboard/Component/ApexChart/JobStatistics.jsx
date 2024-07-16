@@ -37,6 +37,20 @@ export const generateJobStatistics = () => {
           borderRadius: 5,
           borderRadiusApplication: "end",
           borderRadiusWhenStacked: "last",
+          dataLabels: {
+            total: {
+              // enabled: true,
+              style: {
+                fontSize: "13px",
+                fontWeight: 900,
+                color: "#f2efff",
+              },
+              formatter: function (val, opts) {
+                const index = opts.dataPointIndex;
+                return jobViewData[index] + jobApplicantData[index];
+              },
+            },
+          },
         },
       },
       xaxis: {
@@ -65,8 +79,34 @@ export const generateJobStatistics = () => {
       },
       dataLabels: {
         enabled: true,
+        formatter: function (val, opts) {
+          const seriesIndex = opts.seriesIndex;
+          const dataPointIndex = opts.dataPointIndex;
+          if (seriesIndex === 0) {
+            // Job Applicant series
+            return val;
+          } else {
+            // Job View series
+            return val + jobApplicantData[dataPointIndex];
+          }
+        },
         style: {
-          colors: ["#f2efff"],
+          colors: ["#f2efff", "#5932ea"],
+        },
+      },
+      tooltip: {
+        y: {
+          formatter: function (val, opts) {
+            const seriesIndex = opts.seriesIndex;
+            const dataPointIndex = opts.dataPointIndex;
+            if (seriesIndex === 0) {
+              // Job Applicant series
+              return val;
+            } else {
+              // Job View series
+              return val + jobApplicantData[dataPointIndex];
+            }
+          },
         },
       },
       responsive: [

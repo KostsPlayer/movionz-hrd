@@ -8,6 +8,8 @@
   @include m.flex($justify: flex-start);
   border-bottom: 0.1rem solid #ddd;
   gap: 0.8rem;
+  position: relative;
+  z-index: 3;
 
   .logo {
     width: fit-content;

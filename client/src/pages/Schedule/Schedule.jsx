@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Plus, ChevronRight, ChevronLeft, Check } from "lucide-react";
 import Layout from "./../../component/Layout/Layout";
 
-const daysOfWeek = [
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat",
-];
+const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const startDate = new Date("2024-07-14");
 
@@ -32,7 +24,7 @@ const renderRows = () => {
       <td className="hour">{time}</td>
       {daysOfWeek.map((day, idx) => (
         <td key={idx} className="time-slot">
-          <div className="card">k;lajsdf;;laksjdf;laksjdf</div>
+          <div className="card">Lorem, ipsum.</div>
         </td>
       ))}
     </tr>
@@ -66,21 +58,21 @@ const Schedule = () => {
         currentMonth,
         i - firstDayIndex + 1
       );
-      datesHTML += `<div class="date inactive">${prevDate.getDate()}</div>`;
+      datesHTML += `<div className="date inactive">${prevDate.getDate()}</div>`;
     }
 
     for (let i = 1; i <= totalDays; i++) {
       const date = new Date(currentYear, currentMonth, i);
       const activeClass =
         date.toDateString() === new Date().toDateString() ? "active" : "";
-      datesHTML += `<div class="date ${activeClass}">${i}</div>`;
+      datesHTML += `<div className="date ${activeClass}">${i}</div>`;
     }
 
     const remainingDays = (7 - ((firstDayIndex + totalDays) % 7)) % 7;
 
     for (let i = 1; i <= remainingDays; i++) {
       const nextDate = new Date(currentYear, currentMonth + 1, i);
-      datesHTML += `<div class="date inactive">${nextDate.getDate()}</div>`;
+      datesHTML += `<div className="date inactive">${nextDate.getDate()}</div>`;
     }
 
     setDatesHTML(datesHTML);
@@ -139,8 +131,7 @@ const Schedule = () => {
                   ))}
                 </tr>
               </thead>
-              <tbody>{renderRows()}
-              </tbody>
+              <tbody>{renderRows()}</tbody>
             </table>
           </div>
         </div>
@@ -148,11 +139,11 @@ const Schedule = () => {
           <div className="calendar">
             <div className="header">
               <button className="prevBtn" onClick={handlePrevMonth}>
-                <ChevronLeft />
+                <ChevronLeft size={20} />
               </button>
               <div className="monthYear">{monthYearString}</div>
               <button className="nextBtn" onClick={handleNextMonth}>
-                <ChevronRight />
+                <ChevronRight size={20} />
               </button>
             </div>
             <div className="days">
@@ -173,53 +164,47 @@ const Schedule = () => {
             <div className="header-detail">
               <h4>Calendar Detail</h4>
               <button className="tombol">
-                <Plus />
+                <Plus size={21} />
               </button>
             </div>
-            <div className="container-detail">
-              <ul>
-                <li>
-                  <span className="check-1">
-                    <Check strokeWidth={3} />
-                  </span>
-                  <p>menyelesaikan masalah keluhan karyawan</p>
-                </li>
-                <li>
-                  <span className="check-2">
-                    <Check strokeWidth={3} />
-                  </span>
-                  <p>
-                    Mengembangkan rencana tindakan untuk peningkatan kinerja
-                  </p>
-                </li>
-                <li>
-                  <span className="check-3">
-                    <Check strokeWidth={3} />
-                  </span>
-                  <p>Memeriksa dan memperbarui data karyawan dalam sistem HR</p>
-                </li>
-                <li>
-                  <span className="check-4">
-                    <Check strokeWidth={3} />
-                  </span>
-                  <p>Mengadakan wawancara dan tes kemampuan</p>
-                </li>
-                <li>
-                  <span className="check-5">
-                    <Check strokeWidth={3} />
-                  </span>
-                  <p>Merancang dan menyusun materi pelatihan</p>
-                </li>
-                <li>
-                  <span className="check-6">
-                    <Check strokeWidth={3} />
-                  </span>
-                  <p>
-                    Menangani permintaan cuti, izin, dan administrasi lainnya
-                  </p>
-                </li>
-              </ul>
-            </div>
+            <ul className="container-detail">
+              <li>
+                <span className="check-1">
+                  <Check strokeWidth={4} size={12} />
+                </span>
+                <p>Menyelesaikan masalah keluhan karyawan</p>
+              </li>
+              <li>
+                <span className="check-2">
+                  <Check strokeWidth={4} size={12} />
+                </span>
+                <p>Mengembangkan rencana tindakan untuk peningkatan kinerja</p>
+              </li>
+              <li>
+                <span className="check-3">
+                  <Check strokeWidth={4} size={12} />
+                </span>
+                <p>Memeriksa dan memperbarui data karyawan dalam sistem HR</p>
+              </li>
+              <li>
+                <span className="check-4">
+                  <Check strokeWidth={4} size={12} />
+                </span>
+                <p>Mengadakan wawancara dan tes kemampuan</p>
+              </li>
+              <li>
+                <span className="check-5">
+                  <Check strokeWidth={4} size={12} />
+                </span>
+                <p>Merancang dan menyusun materi pelatihan</p>
+              </li>
+              <li>
+                <span className="check-6">
+                  <Check strokeWidth={4} size={12} />
+                </span>
+                <p>Menangani permintaan cuti, izin, dan administrasi lainnya</p>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
