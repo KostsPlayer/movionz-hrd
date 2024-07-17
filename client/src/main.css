@@ -23,6 +23,7 @@
   grid-template-rows: repeat(3, auto);
   grid-template-areas: "display display" "statistic statistic" "status composition";
   gap: 2rem;
+  padding: 1.8rem 0;
 }
 .dashboard .display-data {
   grid-area: display;
@@ -265,6 +266,7 @@
   height: fit-content;
   width: 100%;
   position: relative;
+  padding: 1.8rem 0;
 }
 .schedule-center .schedule-container {
   display: flex;
@@ -380,15 +382,16 @@
   align-items: center;
   flex-direction: column;
   gap: 1.4rem;
+  padding: 1.8rem 0;
   padding-left: 2.1rem;
 }
 .schedule-right::before {
   content: "";
   position: absolute;
-  top: -30px;
+  top: 0;
   left: 2rem;
   width: 125%;
-  height: 115%;
+  height: 100%;
   background-color: #fff;
   z-index: 1;
   border-left: 2px solid #ddd;
@@ -592,7 +595,8 @@
 
 .layout {
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   display: grid;
   grid-template-areas: "topbar topbar" "sidebar content";
   grid-template-columns: auto 1fr;
@@ -782,7 +786,7 @@
 .layout .content {
   width: 100%;
   height: auto;
-  padding: 1.8rem 2.1rem;
+  padding: 0 2.1rem;
   grid-area: content;
   background-color: #f6f8fa;
 }
@@ -799,4 +803,4 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   font-family: "Nunito", sans-serif;
-}/*# sourceMappingURL=main.css.map */
+}
