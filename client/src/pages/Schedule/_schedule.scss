@@ -131,9 +131,8 @@
     position: relative;
     @include m.flex($direction: column, $justify: flex-start);
     gap: 1.4rem;
-    padding: 1.8rem 0;
-    padding-left: 2.1rem;
-    
+    padding: 1.8rem 0 1.8rem 2.1rem;
+
     &::before {
       content: "";
       position: absolute;
