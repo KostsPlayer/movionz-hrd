@@ -1,0 +1,28 @@
+[
+  {
+    "day": "Sun",
+    "t09": "mandi",
+    "t10": "gosok gigi",
+    "t11": "cuci muka",
+    "t12": "main",
+    "t13": "istirahat",
+    "t14": "belajar",
+    "t15": "tidur",
+    "t16": "main2",
+    "t17": "mandi2",
+    "t18": "gosok gigi2"
+  },
+  {
+    "day": "Mon",
+    "t09": "mandi2",
+    "t10": "gosok gigi2",
+    "t11": "cuci muka2",
+    "t12": "main2",
+    "t13": "istirahat2",
+    "t14": "belajar2",
+    "t15": "tidur2",
+    "t16": "main3",
+    "t17": "mandi3",
+    "t18": "gosok gigi3"
+  }
+]

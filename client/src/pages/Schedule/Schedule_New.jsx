@@ -2,40 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Plus, Check } from "lucide-react";
 import Layout from "../../component/Layout/Layout";
 import Calendar from "./Component/Calender";
+import generateSchedule from "./Component/generateSchedule.json";
 
 const startDate = new Date("2024-07-14");
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const times = Array.from({ length: 10 }, (_, i) => `${i + 9}:00`);
-
-const generateSchedule = [
-  {
-    day: "Sun",
-    t09: "mandi",
-    t10: "gosok gigi",
-    t11: "cuci muka",
-    t12: "main",
-    t13: "istirahat",
-    t14: "belajar",
-    t15: "tidur",
-    t16: "main2",
-    t17: "mandi2",
-    t18: "gosok gigi2",
-  },
-  {
-    day: "Mon",
-    t09: "mandi2",
-    t10: "gosok gigi2",
-    t11: "cuci muka2",
-    t12: "main2",
-    t13: "istirahat2",
-    t14: "belajar2",
-    t15: "tidur2",
-    t16: "main3",
-    t17: "mandi3",
-    t18: "gosok gigi3",
-  },
-  // Tambahkan objek lain untuk hari lainnya...
-];
 
 // Fungsi untuk mendapatkan jadwal berdasarkan hari dan waktu
 const getScheduleForDayAndTime = (day, time) => {
